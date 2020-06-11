@@ -27,4 +27,22 @@ class ShortenURL {
             console.log(err);
         }
     }
+
+    autoCopy(e){
+        if(e.target.closest('.app__copy')){
+            const btn = e.target;
+            const link = btn.previousElementSibling.previousElementSibling;
+            link.value = link.nextElementSibling.getAttribute('href');
+            console.log(link.value);
+            // link.select();
+            // document.execCommand('copy');
+            navigator.clipboard.writeText(link.value).then(res =>{
+                btn.textContent = 'Copied!';
+                setTimeout(()=> btn.textContent = 'Copy',2000);
+            }).catch(err => console.log(err));
+
+
+           
+        }
+    }
 }

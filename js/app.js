@@ -1,7 +1,18 @@
 
+let urlArr;
 // initialize the shortener
 const postLink = new ShortenURL();
 const ui = new UI();
+const storage2 = new Storage2(urlArr);
+
+
+window.addEventListener('DOMContentLoaded',()=>{
+    if(storage2.urlArr.length !== 0){
+        storage2.urlArr.forEach(item =>{
+            ui.addToList(item.url,item.id);
+        })
+    }
+});
 
 function getShortLink(e){
     e.preventDefault();
@@ -15,7 +26,7 @@ function getShortLink(e){
                 const hashID = res.hashid;
                 console.log(hashID);
                 ui.addToList(urlText,hashID);
-
+                storage2.updateStorage(urlText,hashID);
                 ui.clearInput();
             });
 
@@ -32,3 +43,4 @@ function getShortLink(e){
 
 
 ui.form.addEventListener('submit',getShortLink);
+ui.linkList.addEventListener('click',postLink.autoCopy);

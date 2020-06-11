@@ -4,6 +4,7 @@ class UI {
         this.inputField = document.querySelector(".app__input");
         this.form = document.querySelector(".app__form");
         this.mainApp = document.querySelector(".app__main");
+        this.message = document.querySelector('.message');
     }
 
     addToList(url, id) {
@@ -12,6 +13,7 @@ class UI {
             <p class="app__link">
                 ${url}
             </p>
+            <input type="text" class="value-holder">
             <a href="https://rel.ink/${id}" class="app__shorten">https://rel.ink/${id}</a>
             <button class="app__copy btn btn--box">Copy</button>
         </li>
@@ -29,7 +31,7 @@ class UI {
         msg.className = "error";
         msg.appendChild(document.createTextNode(message));
 
-        this.form.insertAdjacentElement("beforeend", msg);
+        this.message.insertAdjacentElement("beforeend", msg);
         this.inputField.classList.add("borderRed");
         setTimeout(() => {
             this.inputField.classList.remove('borderRed');
