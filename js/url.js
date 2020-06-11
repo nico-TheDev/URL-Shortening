@@ -4,7 +4,7 @@
 class ShortenURL {
     constructor(url){
         this.url = url;
-        this.regex = new RegExp(/^https:\/\/(www\.)?([\w]+)\.([a-z\d]{2,})\/?([\w\.\?\=\/]+)?$/,"gi");
+        this.regex = /^https:\/\/(www\.)?([\w]+)\.([a-z\d]{2,})\/?([\w\.\?\=\/]+)?$/i;
     }
 
     async postURL(link){
