@@ -415,6 +415,7 @@ li {
 }
 
 .app__main {
+  position: relative;
   border-radius: 1rem;
   overflow: hidden;
   background: url(/images/bg-shorten-desktop.svg);
@@ -430,6 +431,10 @@ li {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 @media only screen and (max-width: 600px) {
@@ -469,6 +474,7 @@ li {
   padding: 0.5rem 2rem;
   width: calc(90% - 1rem);
   margin-right: 1rem;
+  border: 2px solid transparent;
 }
 
 @media only screen and (max-width: 600px) {
@@ -769,5 +775,19 @@ li {
         -ms-grid-row-align: end;
         align-self: end;
   }
+}
+
+.error {
+  color: #f46262;
+  font-size: 0.8rem;
+  padding: 0.4rem 0;
+  font-style: italic;
+  position: absolute;
+  bottom: 1rem;
+  left: 3rem;
+}
+
+.borderRed {
+  border-color: #f46262;
 }
 /*# sourceMappingURL=style.css.map */
